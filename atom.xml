@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-04-10T11:36:39.632Z</updated>
+  <updated>2022-04-10T11:51:39.889Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,12 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>My New Post</title>
+    <link href="http://example.com/2022/04/10/My-New-Post/"/>
+    <id>http://example.com/2022/04/10/My-New-Post/</id>
+    <published>2022-04-10T11:51:19.000Z</published>
+    <updated>2022-04-10T11:51:39.889Z</updated>
+    
+    <content type="html"><![CDATA[<p>jjjjjjjjjjjjiwjidjiadw</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;jjjjjjjjjjjjiwjidjiadw&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>about hexo sync</title>
     <link href="http://example.com/2022/04/10/about-hexo-sync/"/>
     <id>http://example.com/2022/04/10/about-hexo-sync/</id>
     <published>2022-04-10T11:36:39.000Z</published>
-    <updated>2022-04-10T11:36:39.632Z</updated>
+    <updated>2022-04-10T11:40:34.473Z</updated>
     
+    <content type="html"><![CDATA[<h1 id="hello-everyone"><a href="#hello-everyone" class="headerlink" title="hello everyone"></a>hello everyone</h1>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;hello-everyone&quot;&gt;&lt;a href=&quot;#hello-everyone&quot; class=&quot;headerlink&quot; title=&quot;hello everyone&quot;&gt;&lt;/a&gt;hello everyone&lt;/h1&gt;</summary>
+      
     
     
     
