@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>Ubuntu（Zorin）上配置Clash · Shemol's Blog</title><meta name="description" content="文中有些文件建议提前下载好，否则可能因为网络问题无法下载，建议先浏览全文
+
+参考文章：http://jemlab.cn/?p=141
+下载clash并配置
+使用以下命令下载Clash最新版本（后续注：目前这个Github仓库已经删除，所以没办法通过这种方式获得了，还请另行寻找方法
+wget http"><meta name="og:description" content="文中有些文件建议提前下载好，否则可能因为网络问题无法下载，建议先浏览全文
+
+参考文章：http://jemlab.cn/?p=141
+下载clash并配置
+使用以下命令下载Clash最新版本（后续注：目前这个Github仓库已经删除，所以没办法通过这种方式获得了，还请另行寻找方法
+wget http"><meta name="twitter:site" content="Shemol's Blog"><meta name="twitter:title" content="Ubuntu（Zorin）上配置Clash"><meta name="twitter:card" content="summary"><meta name="keywords" content=""><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/style.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 7.3.0"><link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body><div class="container" id="stage"><div class="row"><div class="col-sm-3 col-xs-12 side-container invisible" id="side-bar"><div class="vertical-text site-title"><h3 class="site-title-small" tabindex="-1"><a class="a-title" href="/">Shemol's Blog</a></h3><h1 class="site-title-large" tabindex="-1"><a class="a-title" href="/"></a></h1><!--h6(onclick="triggerSiteNav()") Trigger--></div><br class="visible-lg visible-md visible-sm"><div class="site-title-links" id="site-nav"><ul><li><a href="/">Home</a></li><li><a href="/archives">Archive</a></li><li><a href="/tags">Tags</a></li><li><a href="/about/index.html">about</a></li><li><a href="/friends/index.html">friends</a></li><li class="soc"></li></ul><div class="visible-lg visible-md visible-sm site-nav-footer"><br class="site-nav-footer-br"><footer><p>&copy;&nbsp;2024&nbsp;<a target="_blank" href="https://shemol.tech" rel="noopener noreferrer">Shemol</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div><div class="col-sm-9 col-xs-12 main-container invisible" id="main-container"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post-container"><p class="post-title"><a>Ubuntu（Zorin）上配置Clash</a></p><p class="post-meta"><span class="date meta-item">Posted at&nbsp;2023-10-30</span><span class="meta-item"><i class="fa fa-tag"></i><span>&nbsp;</span><a class="a-tag" href="/tags/流程记录/" title="流程记录">流程记录</a><span>&nbsp;</span></span></p><p class="post-abstract"><p><strong>文中有些文件建议提前下载好，否则可能因为网络问题无法下载，建议先浏览全文</strong></p>
+<span id="more"></span>
+<p>参考文章：<a target="_blank" rel="noopener" href="http://jemlab.cn/?p=141">http://jemlab.cn/?p=141</a></p>
+<h1 id="下载clash并配置"><a href="#下载clash并配置" class="headerlink" title="下载clash并配置"></a>下载clash并配置</h1><ul>
+<li><p>使用以下命令下载Clash最新版本（后续注：目前这个Github仓库已经删除，所以没办法通过这种方式获得了，还请另行寻找方法</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre class="line-numbers language-hljs Bash"><code class="language-hljs Bash">wget https://github.com/Dreamacro/clash/releases/download/v1.18.0/clash-linux-amd64-v1.17.0.gz<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<p>一般是换到新系统要重新配置这些东西？所以建议提前下载好存到U盘上或者哪里，要不然到时候从Github下载只能碰运气。</p>
+</li>
+<li><p>进入该文件所在目录，解压</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre class="line-numbers language-hljs Bash"><code class="language-hljs Bash">gunzip clash-linux-amd64-v1.18.0.gz<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+</li>
+<li><p>将clash-linux-amd64-v1.18.0文件重命名为clash</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre class="line-numbers language-hljs Bash"><span class="hljs-built_in"><code class="language-hljs Bash"><span class="hljs-built_in">mv</span> clash-linux-amd64-v1.18.0 clash<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+</li>
+<li><p>在此目录下创建文件夹（注意这里用大写Clash只是为了和clash区别开）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre class="line-numbers language-hljs Bash"><span class="hljs-built_in"><code class="language-hljs Bash"><span class="hljs-built_in">mkdir</span> Clash<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+</li>
+<li><p>移动clash文件到Clash文件夹中</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre class="line-numbers language-hljs Bash"><span class="hljs-built_in"><code class="language-hljs Bash"><span class="hljs-built_in">mv</span> clash ./Clash<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+</li>
+<li><p>进入Clash文件夹</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre class="line-numbers language-hljs Bash"><span class="hljs-built_in"><code class="language-hljs Bash"><span class="hljs-built_in">cd</span> Clash<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+</li>
+<li><p>下载clash配置文件<code>config.yaml</code> （注意：这个订阅链接是自己的，替代订阅链接，如果失败了说明订阅链接有问题）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre class="line-numbers language-hljs Bash"><code class="language-hljs Bash">wget -O config.yaml [订阅链接]<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<p>注意：如果步骤7失败了也没关系，直接跳过这一步，后面也会自动下载。也可以在网址<a href="https://link.zhihu.com/?target=https://github.com/Loyalsoldier/geoip/releases/download/202212010123/Country.mmdb">Country.mmdb</a>下载。<br>注意：也建议可以提前下载好，要不然到时候可能因为网络问题下载不成功</p>
+</li>
+<li><p>启动clash</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre class="line-numbers language-hljs Bash"><span class="hljs-built_in"><code class="language-hljs Bash"><span class="hljs-built_in">chmod</span> +x clash<br>./clash -d .<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+</li>
+<li><p>打开系统设置，点击网络，找到系统代理，选择手动</p>
+<blockquote>
+<p>HTTP代理：127.0.0.1：7890<br>HTTPS代理：127.0.0.1：7890<br>SOCKS代理：127.0.0.1：7891</p>
+</blockquote>
+</li>
+</ul>
+<p>即可启动系统代理<br><img src="/img/vpn.png" alt="clash"></p>
+<ul>
+<li>访问 <a target="_blank" rel="noopener" href="http://clash.razord.top/">http://clash.razord.top/</a> 。代理模式建议选为<strong>规则</strong><br>HOST、端口、密钥我记得不用输入，点击保存和确定就可以了。可以直接在面板上切换节点</li>
+</ul>
+<h1 id="配置开机自启动"><a href="#配置开机自启动" class="headerlink" title="配置开机自启动"></a>配置开机自启动</h1><p>可能有些需要管理员权限，记不清楚了。<code>Permission denied</code>就在前面加<code>sudo</code></p>
+<ul>
+<li><p>创建service文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre class="line-numbers language-hljs Bash"><span class="hljs-built_in"><code class="language-hljs Bash"><span class="hljs-built_in">touch</span> /etc/systemd/system/clash.service<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+</li>
+<li><p>编辑service文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre class="line-numbers language-hljs Bash"><code class="language-hljs Bash">vim /etc/systemd/system/clash.service<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+</li>
+<li><p>编辑如下文本（vim的使用方法请自行搜索</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre class="line-numbers language-hljs plaintext"><code class="language-hljs plaintext">Description=clash daemon <br>[Service] <br>Type=simple <br>User=root <br>ExecStart=/home/username/下载/Clash/clash -d /home/username/下载/Clash/ Restart=on-failure <br>[Install] <br>WantedBy=multi-user.target<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure>
+<p>其中<code>ExecStart</code>中地址是clash的具体所在地址，要根据自己Clash文件夹做修改</p>
+</li>
+<li><p>设置 Clash 的开机启动项，检查状态，服务启动成功之后，根据信息设置自己客户端的代理协议类型及端口（依次输入）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre class="line-numbers language-hljs Bash"><span class="hljs-built_in">sudo</span> systemctl daemon-reload <br><span class="hljs-built_in">sudo</span> systemctl <span class="hljs-built_in">enable</span> clash <br><span class="hljs-built_in">sudo</span> systemctl start clash <br><span class="hljs-built_in"><code class="language-hljs Bash"><span class="hljs-built_in">sudo</span> systemctl daemon-reload <br><span class="hljs-built_in">sudo</span> systemctl <span class="hljs-built_in">enable</span> clash <br><span class="hljs-built_in">sudo</span> systemctl start clash <br><span class="hljs-built_in">sudo</span> systemctl status clash<br><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></td></tr></table></figure></li>
+</ul>
+</p></div><div class="share"><span>Share</span>&nbsp;<span class="soc"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></span><span class="soc"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></span><span class="soc"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=https://shemol.tech/2023/10/30/Ubuntu（Zorin）上配置Clash/%20Shemol's Blog%20Ubuntu（Zorin）上配置Clash"></a></span></div><div class="pagination"><p class="clearfix"><span class="pre pagbuttons"><a role="navigation" href="/2023/11/08/2023%E5%B9%B4%E7%AC%AC44%E5%91%A8%E5%91%A8%E6%8A%A5/" title="2023年第44周周报"><i class="fa fa-angle-double-left"></i>&nbsp;Previous post: 2023年第44周周报</a></span><span>&nbsp;</span><span class="next pagbuttons"><a role="navigation" href="/2023/10/29/%E3%80%8A%E9%9B%B6%E4%BC%AF%E7%88%B5%E3%80%8B/" title="《零伯爵》">Next post: 《零伯爵》&nbsp;<i class="fa fa-angle-double-right"></i></a></span></p></div></div></div></div><div class="visible-xs site-bottom-footer"><footer><p>&copy;&nbsp;2024&nbsp;<a target="_blank" href="https://shemol.tech" rel="noopener noreferrer">Shemol</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div></div><script src="/js/jquery-3.1.0.min.js"></script><script src="/js/bootstrap.min.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/google-analytics.js"></script><script src="/js/typography.js"></script></body></html>

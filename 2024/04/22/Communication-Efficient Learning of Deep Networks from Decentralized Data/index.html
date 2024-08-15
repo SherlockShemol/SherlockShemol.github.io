@@ -1,0 +1,110 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="author"><title>Communication-Efficient Learning of Deep Networks from Decentralized Data · Shemol's Blog</title><meta name="description" content="标题：Communication-Efficient Learning of Deep Networks from Decentralized Data（从去中心化数据进行深度网络通信高效的学习）
+
+会议：Proceedings of the 20th International Conferenc"><meta name="og:description" content="标题：Communication-Efficient Learning of Deep Networks from Decentralized Data（从去中心化数据进行深度网络通信高效的学习）
+
+会议：Proceedings of the 20th International Conferenc"><meta name="twitter:site" content="Shemol's Blog"><meta name="twitter:title" content="Communication-Efficient Learning of Deep Networks from Decentralized Data"><meta name="twitter:card" content="summary"><meta name="keywords" content=""><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="renderer" content="webkit"><link rel="short icon" href="images/favicon.png" type="image/x-icon"><link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/font-awesome.min.css"><link rel="stylesheet" href="/css/style.css"><link rel="alternate" type="application/atom+xml" title="ATOM 1.0" href="/atom.xml"><meta name="generator" content="Hexo 7.3.0"><link rel="stylesheet" href="/css/prism.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body><div class="container" id="stage"><div class="row"><div class="col-sm-3 col-xs-12 side-container invisible" id="side-bar"><div class="vertical-text site-title"><h3 class="site-title-small" tabindex="-1"><a class="a-title" href="/">Shemol's Blog</a></h3><h1 class="site-title-large" tabindex="-1"><a class="a-title" href="/"></a></h1><!--h6(onclick="triggerSiteNav()") Trigger--></div><br class="visible-lg visible-md visible-sm"><div class="site-title-links" id="site-nav"><ul><li><a href="/">Home</a></li><li><a href="/archives">Archive</a></li><li><a href="/tags">Tags</a></li><li><a href="/about/index.html">about</a></li><li><a href="/friends/index.html">friends</a></li><li class="soc"></li></ul><div class="visible-lg visible-md visible-sm site-nav-footer"><br class="site-nav-footer-br"><footer><p>&copy;&nbsp;2024&nbsp;<a target="_blank" href="https://shemol.tech" rel="noopener noreferrer">Shemol</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div><div class="col-sm-9 col-xs-12 main-container invisible" id="main-container"><div class="autopagerize_page_element"><div class="content"><div class="post-page"><div class="post-container"><p class="post-title"><a>Communication-Efficient Learning of Deep Networks from Decentralized Data</a></p><p class="post-meta"><span class="date meta-item">Posted at&nbsp;2024-04-22</span><span class="meta-item"><i class="fa fa-tag"></i><span>&nbsp;</span><a class="a-tag" href="/tags/论文阅读/" title="论文阅读">论文阅读</a><span>&nbsp;</span><a class="a-tag" href="/tags/FL/" title="FL">FL</a><span>&nbsp;</span></span></p><p class="post-abstract"><p><strong>标题</strong>：Communication-Efficient Learning of Deep Networks from Decentralized Data（从去中心化数据进行深度网络通信高效的学习）</p>
+<span id="more"></span>
+<p><strong>会议</strong>：Proceedings of the 20th International Conference on Artificial Intelligence and Statistics (AISTATS) 2017</p>
+<p><strong>作者</strong>：H. Brendan McMahan Eider Moore Daniel Ramage Seth Hampson Blaise Aguera y Arcas Google, Inc.</p>
+<p><strong>分享人</strong>：宋飒</p>
+<h1 id="KIMI论文总结"><a href="#KIMI论文总结" class="headerlink" title="KIMI论文总结"></a>KIMI论文总结</h1><p>这篇论文的核心内容是关于一种新的机器学习方法——联邦学习（Federated Learning），它允许在移动设备上分布式地训练深度网络，而不需要将个人数据上传到中央服务器。这种方法特别适用于处理大量、隐私敏感的数据。以下是该论文的主要贡献和关键点：</p>
+<ol>
+<li><strong>问题定义</strong>：作者指出在移动设备上训练模型时，数据的隐私性、数据量以及通信成本是主要的挑战。</li>
+<li><strong>联邦学习</strong>：提出了一种新的学习范式，即联邦学习，它通过在移动设备上保留训练数据，并仅聚合本地计算的更新来学习共享模型。</li>
+<li><strong>FederatedAveraging算法</strong>：介绍了一种实用的联邦学习方法，称为FederatedAveraging（FedAvg），它结合了每个客户端上的局部随机梯度下降（SGD）和服务器上执行的模型平均。</li>
+<li><strong>实验评估</strong>：通过在不同的模型架构和数据集上的广泛实验，展示了该方法对于非独立同分布（non-IID）和不平衡数据的鲁棒性，并显著减少了训练深度网络所需的通信轮数。</li>
+<li><strong>隐私优势</strong>：联邦学习相比传统的数据中心训练，具有显著的隐私优势，因为它只传输最小的更新信息，并且这些更新可以是短暂的，不需要存储。</li>
+<li><strong>联邦优化</strong>：讨论了联邦优化问题，包括非IID数据、数据不平衡、大规模分布和通信限制等关键特性。</li>
+<li><strong>实验结果</strong>：通过在MNIST手写数字识别、Shakespeare语言模型和CIFAR-10图像分类任务上的实验，展示了FedAvg算法在减少通信成本和提高模型性能方面的效果。</li>
+<li><strong>未来工作</strong>：论文最后提出了将联邦学习与差分隐私、安全多方计算等技术结合，以提供更强隐私保护的未来研究方向。</li>
+</ol>
+<p>这篇论文对于理解如何在保护隐私的同时，有效地利用分布式数据来训练机器学习模型具有重要意义。</p>
+<h1 id="GPT4论文总结"><a href="#GPT4论文总结" class="headerlink" title="GPT4论文总结"></a>GPT4论文总结</h1><p>谷歌公司的 H. Brendan McMahan 及其同事在题为“Communication-Efficient Learning of Deep Networks from Decentralized Data”的论文中提出了一种名为Federated Learning的机器学习方法。此方法特别注重于提高隐私，并减少在通常在移动设备上发现的分散数据集上训练深度学习模型的通信需求。<br>以下是论文中的关键点摘要：<br>联邦学习</p>
+<ul>
+<li>目的：让智能手机等设备能够协作学习共享预测模型，同时将所有训练数据保存在设备上，从而实现机器学习能力与云中存储数据需求的分离。</li>
+<li>方法：每台设备都在自己的数据上执行计算，然后将更新内容共享到全局模型。因此，敏感数据无需离开设备，从而解决了隐私问题。</li>
+<li>主要贡献<ul>
+<li>分散式训练：该论文描述了一种在分散式数据上高效训练模型的方法，在该方法中，设备在本地计算更新，并且仅与中央服务器共享这些更新。 </li>
+<li>FederatedAveraging算法：该算法将每位客户执行的局部随机梯度下降与执行模型平均的服务器相结合。与传统的同步随机梯度下降相比，这大大减少了所需的通信轮数。</li>
+</ul>
+</li>
+<li>经验评估：联合学习的有效性已在各种模型架构和数据集中得到证明，显示对分散式设置中典型的非平衡和非 IID数据分布具有稳健性。</li>
+<li>实际意义<ul>
+<li>减少通信：联合学习所需通信量远少于传统方法，这在带宽可能受限的移动环境中至关重要。</li>
+<li>提高隐私：该方法通过最大限度地减少通过网络共享的数据并使敏感信息保留在设备上，从而符合隐私原则。</li>
+</ul>
+</li>
+<li>结论：联邦学习不仅可行，而且对于在通信约束下训练深度网络是实用的，它提供了可观的隐私优势，同时不影响学习性能。此方法对在移动和分布式环境中部署机器学习具有广泛的意义，尤其是在隐私和通信效率至关重要的环境中。</li>
+</ul>
+<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>现代移动设备可以访问大量适合学习模型的数据，这反过来又可以极大地改善设备上的用户体验。例如，语言模型可以改进语音识别和文本输入，图像模型可以自动选择好照片。然而，这些丰富的数据往往对隐私敏感、数量庞大，或两者兼而有之，这可能会妨碍使用传统方法登录数据中心并在那里进行训练。我们提倡一种替代方法，将训练数据分布在移动设备上，通过聚合本地计算的更新来学习共享模型。我们将这种分散式方法称为 “联邦学习”（Federated Learning）。</p>
+<p>我们提出了一种<strong>基于迭代模型平均的深度网络联合学习实用方法</strong>，并进行了广泛的实证评估，考虑了五种不同的模型架构和四个数据集。这些实验证明，该方法对<strong>不平衡和非IID数据分布</strong>具有很强的鲁棒性，而不平衡和非IID数据分布正是这种环境的一个显著特征。<strong>通信成本是主要的限制因素</strong>，与同步随机梯度下降法相比，我们发现所需的通信回合减少了10-100倍。</p>
+<h1 id="论文的主要贡献"><a href="#论文的主要贡献" class="headerlink" title="论文的主要贡献"></a>论文的主要贡献</h1><p>1、移动设备上的分布式数据训练问题识别作为一个重要研究方向。<br>2、引入了联邦平均算法（FederatedAveraging algorithm），该算法将每个客户端上的局部随机梯度下降（SGD）与执行模型平均的服务器相结合。<br>3、对该算法进行了大量实验，证明它对不平衡和非IID数据分布具有鲁棒性，并能将在分散数据上训练深度网络所需的通信轮数减少几个数量级。</p>
+<h1 id="联邦学习"><a href="#联邦学习" class="headerlink" title="联邦学习"></a>联邦学习</h1><h2 id="理想问题特性"><a href="#理想问题特性" class="headerlink" title="理想问题特性"></a>理想问题特性</h2><p>1、与数据中心通常提供的代理数据相比，在来自移动设备的真实世界数据上进行训练具有明显优势。<br>2、这些数据具有隐私敏感性或规模较大（与模型规模相比），因此最好不要纯粹出于模型训练的目的而将其记录到数据中心（以符合集中收集原则）。<br>3、对于有监督的任务，数据上的标签可以从用户交互中自然推断出来。</p>
+<p>许多支持移动设备智能行为的模型都符合上述标准。<br>两个移动设备智能行为的例子：<br>1、图像分类，例如预测哪些照片最有可能在未来被多次浏览或分享。<br>2、语言模型，它可以通过改进解码、下一个单词预测甚至整个回复的预测来改善语音识别和触摸屏键盘上的文本输入。</p>
+<p>数据隐私：这两项任务的潜在训练数据（用户拍摄的所有照片和在手机键盘上输入的所有内容，包括密码、URL、信息等）都可能是隐私敏感数据。</p>
+<p>数据集不同：这些示例的分布也可能与容易获得的代理数据集有很大不同：聊天和文本信息中的语言使用通常与标准语言库（如维基百科和其他网络文档）有很大不同；人们在手机上拍摄的照片可能与典型的 Flickr 照片有很大不同。</p>
+<p>标签可直接使用：最后，这些问题的标签是直接可用的：输入的文本是自标签，用于学习语言模型；照片标签可以通过用户与照片应用程序的自然交互（删除、共享或查看哪些照片）来定义。</p>
+<p>这两项任务都非常适合学习神经网络。在图像分类方面，众所周知，前馈深度网络，尤其是卷积网络，能够提供最先进的结果。对于语言建模任务，递归神经网络，尤其是LSTM，已经取得了最先进的成果。</p>
+<h2 id="隐私"><a href="#隐私" class="headerlink" title="隐私"></a>隐私</h2><p>联合学习与数据中心在持久化数据上进行培训相比，具有明显的隐私优势。即使持有“匿名”数据集，也会因为与其他数据的连接而危及用户隐私。相比之下，联合学习所传输的信息是改进特定模型所需的最小更新（自然，隐私优势的强度取决于更新的内容）。它们永远不会包含更多的信息。</p>
+<p>与原始训练数据相比（通过数据处理不等式），数据更新所包含的信息量通常要少得多。此外，聚合算法不需要更新的来源，因此可以通过混合网络（如Tor网络）或可信第三方传输更新，而无需识别元数据。我们将在本文最后简要讨论将联合学习与安全多方计算和差分隐私相结合的可能性。</p>
+<h2 id="联合优化"><a href="#联合优化" class="headerlink" title="联合优化"></a>联合优化</h2><p>我们将联合学习中隐含的优化问题称为联合优化，并将其与分布式优化相联系（和对比）。联合优化有几个关键特性，使其有别于典型的分布式优化问题：</p>
+<p>1、非IID：特定客户端的训练数据通常基于特定用户对移动设备的使用情况，因此任何特定用户的本地数据集都不能代表总体分布情况。</p>
+<blockquote>
+<p>IID：独立同分布（Independent and Identically Distributed）的缩写。在统计学和机器学习领域，当我们假设数据样本是IID时，意味着每个样本都是从相同的分布中独立抽取的。换句话说，每个样本都是独立的，且遵循相同的概率分布。<br>这一假设对于很多传统的机器学习算法非常重要，因为它们通常依赖于样本间的独立性和同一性来保证模型的泛化能力。例如，当我们训练一个分类器时，通常假设训练集中的样本是随机选取的，这样训练出的模型才能很好地推广到新的、未见过的数据上。<br>然而，在联邦学习的上下文中，IID数据的假设通常不成立。因为在现实世界中，由于用户行为的多样性，不同设备上的数据可能会表现出显著的不同分布特征（也就是说，数据是非IID的）。例如，不同的用户可能使用不同的语言模式，或者他们的设备可能以不同的方式使用。因此，联邦学习算法需要能够在非IID数据上有效学习，并且该论文中的方法专门针对这种情况进行了设计和评估。</p>
+</blockquote>
+<p>2、不平衡：同样，一些用户对服务或应用程序的使用会比其他用户多得多，从而导致本地训练数据量的不同。<br>3、大规模分布式：我们希望参与优化的客户端数量远远大于每个客户端的平均示例数量。<br>4、通信受限：移动设备经常处于离线状态，或者连接速度慢或连接费用高。</p>
+<p>在这项工作中，我们的重点是优化的非IID和不平衡特性，以及通信约束的关键性质。已部署的联合优化系统还必须解决大量实际问题：客户端数据集会随着数据的添加和删除而发生变化；客户端可用性与本地数据分布之间存在复杂的关联（例如，讲美式英语的人的手机可能会在不同的时间插上，而讲英式英语的人的手机可能会在不同的时间插上）；以及客户端从不响应或发送损坏的更新。</p>
+<p>这些问题超出了当前工作的范围；相反，我们使用了一种适合实验的受控环境，但仍能解决客户端可用性以及不平衡和非IID数据等关键问题。我们假定采用同步更新方案，通过轮次通信进行更新。有一组固定的$K$个客户端，每个客户端都有一个固定的本地数据集。在每一轮开始时，随机选择一部分客户端$C$，服务器将当前的全局算法状态（如当前的模型参数）发送给每一个客户端。我们只选择一部分客户端来提高效率，因为我们的实验表明，超过一定数量后，增加更多客户端的收益会递减。然后，每个选定的客户端根据全局状态和本地数据集执行本地计算，并向服务器发送更新。然后，服务器将这些更新应用到其全局状态中，整个过程不断重复。</p>
+<p>虽然我们关注的是非凸神经网络目标，但我们考虑的算法适用于任何形式的有限求和目标。<br>$$<br>\min_{w \in \mathbb{R}^d} f(w) \quad \text{where} \quad f(w) \stackrel{\text{def}}{&#x3D;} \frac{1}{n} \sum_{i&#x3D;1}^{n} f_i(w)<br>$$</p>
+<ul>
+<li>目标函数：这个方程式的目标是在变量$w$上最小化函数$f(w)$。这里的$w$是$d$维空间$\mathbb{R}^d$中的一个向量，代表机器学习模型的参数或权重。</li>
+<li>$f(w)$：这是我们想要最小化的目标函数。在机器学习的背景下，$f(w)$可能是一个损失函数，用来衡量带有参数$w$的模型在训练数据上的表现如何。</li>
+<li>$f(w)$的定义：函数$f(w)$被定义为$n$个不同训练样本上的个体损失函数$f_i(w)$的平均值。每个$f_i(w)$通常是单个数据点或一批数据点的损失，这取决于训练设置。</li>
+<li><strong>求和</strong>：表示对所有个体损失从$i&#x3D;1$到$i&#x3D;n$进行求和，其中$n$是数据点或批次的总数。</li>
+<li><strong>平均</strong>：整个求和后的结果除以$n$，这计算了损失的均值。</li>
+</ul>
+<p>在论文更广泛的背景下，这篇论文涉及的是联邦学习，这个方程式意味着整体的目标函数$f(w)$是在许多客户端（比如移动设备）上计算的本地目标函数的聚合，目标是找到那些最小化全局目标的参数$w$。这个最小化问题是通过聚合本地更新（由每个客户端的$f_i(w)$表示）来解决的，而无需直接共享本地数据，从而贡献于全局模型。</p>
+<p>对于机器学习问题，我们通常取$f_i(w) &#x3D; \ell(x_i, y_i; w)$，即使用模型参数$w$对示例 $(x_i,y_i)$ 所做预测的损失。我们假设有$K$个客户端，数据被分割在这些客户端上，其中$ \mathcal{P_k}$ 是客户端$k$上数据点的索引集， $n_k&#x3D;|\mathcal{P_k}|$。因此，我们可以将上面的公式改写为<br>$$<br>f(w) &#x3D; \sum_{k&#x3D;1}^{K} \frac{n_k}{n} F_k(w) \quad \text{where} \quad F_k(w) &#x3D; \frac{1}{n_k} \sum_{i \in P_k} f_i(w)<br>$$<br>这个公式描述了联邦学习中全局损失函数𝑓(𝑤)的构成，它是各个客户端上局部损失函数的加权和。具体来说：</p>
+<ul>
+<li>$f(w)$：全局损失函数，是我们希望通过调整参数$w$来最小化的目标函数。</li>
+<li>$K$：客户端的总数。</li>
+<li>$n_k$：第$k$个客户端上的数据点数量。</li>
+<li>$n$：所有客户端上的总数据点数量。</li>
+<li>$F_k(w)$：第$k$个客户端的局部损失函数的平均值。</li>
+<li>$P_k$：属于第$k$个客户端的数据点的集合。</li>
+<li>$f_i(w)$：参数$w$在第$i$个数据点上的损失函数。</li>
+</ul>
+<blockquote>
+<p>全局损失函数反映了模型在<strong>所有客户端数据上的整体性能</strong>，而不仅仅是单个客户端上的性能。这种方法的优势在于，它可以在不直接访问或共享客户端上的敏感数据的情况下，利用所有客户端的信息来训练和优化模型。</p>
+</blockquote>
+<p>如果分区 $\mathcal{P_k}$是通过将训练示例均匀地随机分配给客户机而形成的，那么我们将得到 $\mathbb{E}_{\mathcal{P}_k} [F_k(w)] &#x3D; f(w)$，其中期望值是对分配给固定客户机的示例集的期望值$k$。这就是分布式优化算法通常采用的IID假设；我们将这种假设不成立的情况（即$F_k$可能是$f$的一个任意糟糕的近似值）称为非IID设置。</p>
+<p>在数据中心优化中，通信成本相对较小，计算成本占主导地位，而最近的重点是使用GPU来降低这些成本。相比之下，在联邦优化中，通信成本占主导地位–我们通常会受到1 MB&#x2F;s或更低上传带宽的限制。此外，客户通常只有在充电、插电和使用未计量的无线网络连接时才会自愿参与优化。此外，我们预计每个客户端每天只会参与少量的更新回合。另一方面，由于任何单个设备上的数据集与总数据集相比都很小，而且现代智能手机拥有相对较快的处理器（包括 GPU），因此与许多模型类型的通信成本相比，计算基本上是免费的。因此，我们的目标是利用额外的计算来减少训练模型所需的通信轮数。我们可以通过两种主要方式增加计算量：<br>1）增加并行性，即在每轮通信之间使用更多的客户端独立工作；<br>2）增加每个客户端的计算量，即每个客户端在每轮通信之间不执行梯度计算等简单计算，而是执行更复杂的计算。我们对这两种方法都进行了研究，但我们所实现的提速主要是由于在客户端使用最低并行水平后，在每个客户端上增加了更多的计算量。</p>
+<h1 id="相关工作"><a href="#相关工作" class="headerlink" title="相关工作"></a>相关工作</h1><p>McDonald等人研究了感知器的分布式训练，Povey等人研究了语音识别 DNN。Zhang等人研究了一种“软”平均的异步方法。这些研究只考虑了集群&#x2F;数据中心设置（最多16名工作人员，基于快速网络的壁钟时间），而没有考虑不平衡和非IID数据集，而这些特性对于联合学习设置至关重要。我们将这种算法风格调整到联合环境中，并进行适当的实证评估，这提出的问题与数据中心环境中的相关问题不同，需要采用不同的方法。</p>
+<p>Neverova等人采用与我们类似的动机，也讨论了在设备上保留敏感用户数据的优势。Shokri和 Shmatikov 的研究在几个方面与之相关：他们专注于训练深度网络，强调隐私的重要性，并通过在每轮通信中只共享参数子集来解决通信成本问题；但是，他们也没有考虑不平衡和非IID数据，而且经验评估也很有限。</p>
+<p>在凸设置中，分布式优化和估计问题受到了极大关注，一些算法特别关注<strong>通信效率</strong>。除了假定凸性外，这些现有研究通常还要求客户机数量远小于每个客户机的示例数量，数据以IID方式分布在客户机上，并且每个节点都有相同数量的数据点–所有这些假定在联合优化设置中都被违反了。异步分布式SGD也被应用于神经网络的训练，例如Dean等人的研究，但这些方法在联合优化设置中需要的更新次数过多。分布式共识算法放宽了IID假设，但仍然不适合在非常多的客户端上进行通信受限的优化。</p>
+<p>我们考虑的（参数化）算法系列的一个终点是简单的单次平均，即每个客户端求解最小化（可能正则化）其本地数据损失的模型，然后对这些模型进行平均以产生最终的全局模型。这种方法已在IID数据的凸案例中进行了广泛研究，众所周知，在最坏的情况下，生成的全局模型并不比在单个客户端上训练模型更好。</p>
+<h1 id="FederatedAveraging算法"><a href="#FederatedAveraging算法" class="headerlink" title="FederatedAveraging算法"></a>FederatedAveraging算法</h1><p>最近，深度学习的大量成功应用几乎都依赖于随机梯度下降（SGD）的变体来进行优化；事实上，许多进展都可以理解为调整模型结构（以及损失函数），使其更适合用简单的基于梯度的方法进行优化。因此，我们自然可以从 SGD 出发，建立联合优化算法。</p>
+<blockquote>
+<p>随机梯度下降（SGD）是一种广泛用于机器学习和深度学习中的优化算法，尤其是在训练有大量数据的复杂模型时。它的核心思想是用来最小化损失函数，这个损失函数衡量的是模型预测值与实际值之间的差距。<br>在全批量梯度下降（Batch Gradient Descent）中，损失函数是在整个数据集上计算得到的，而随机梯度下降不同，它每次只随机选择一个或一小批样本来计算损失和梯度。这样做的好处是每次更新参数时计算量大为减少，从而使得算法能够更快地进行迭代更新，特别是在处理大规模数据集时更为有效。<br>SGD的步骤通常如下：</p>
+<ol>
+<li><strong>随机选择</strong>：从数据集中随机选择一个样本（或一小批样本）。</li>
+<li><strong>计算梯度</strong>：计算选中样本上损失函数的梯度。梯度是损失函数在当前模型参数处的导数，指示了损失函数下降最快的方向。</li>
+<li><strong>更新参数</strong>：将模型参数沿着梯度的反方向更新一小步，步长由学习率决定。</li>
+<li><strong>重复步骤</strong>：重复以上步骤直到满足某个停止准则，比如达到一定的迭代次数或损失函数下降到一个可接受的水平。<br>由于在每次更新中都只使用了部分样本来估计梯度，SGD引入了一些随机性，这不仅能加速计算，而且有助于模型跳出局部最优，可能找到更好的全局最优解。但这也可能使得SGD的收敛路径相对嘈杂，因此通常需要逐渐减小学习率以稳定训练过程。</li>
+</ol>
+</blockquote>
+<p>SGD可以天真地应用于联合优化问题，即在每轮通信中进行一次批量梯度计算（例如在随机选择的客户端上）。这种方法的计算效率很高，但需要大量的训练轮次才能产生良好的模型（例如，即使使用批量归一化等高级方法，Ioffe和Szegedy在大小为60的迷你批次上对MNIST进行了50000步的训练）。我们在CIFAR-10实验中考虑了这一baseline。</p>
+<p>在联合环境中，让更多客户端参与进来的壁钟时间成本很低，因此我们采用了大批量同步SGD作为基线；Chen等人的实验表明，这种方法在数据中心环境中是最先进的，其性能优于异步方法。为了在联合环境中应用这种方法，我们在每一轮选择$C$部分客户端，并计算这些客户端所持有的所有数据的损失梯度。因此，$C$控制全局批量大小， $C&#x3D;1$对应全批量（非随机）梯度下降。我们将这种baseline算法称为FederatedSGD（或 FedSGD）。</p>
+<p>FedSGD 的一个典型实现是$C&#x3D;1$和固定学习率$\eta$，每个客户端$k$计算$g_k &#x3D; \nabla F_k(w_t)$，当前模型下本地数据的平均梯度$w_t$，中央服务器汇总这些梯度并自$\sum_{k&#x3D;1}^{K} \frac{n_k}{n} g_k &#x3D; \nabla f(w_t)$起应用更新$w_{t+1} \leftarrow w_t - \eta \sum_{k&#x3D;1}^{K} \frac{n_k}{n} g_k$。等效更新由$\forall k, w_{t+1}^k \leftarrow w_t - \eta g_k$和$w_{t+1} \leftarrow \sum_{k&#x3D;1}^{K} \frac{n_k}{n} w_{t+1}^k$给出。也就是说，每个本地客户端使用其本地数据对当前模型进行一步梯度下降，然后服务器对得到的模型进行加权平均。一旦算法写成这样，我们就可以在平均步骤之前多次迭代本地更新$w^k \leftarrow w^k - \eta \nabla F_k(w^k)$，从而为每个客户端增加更多计算量。我们将这种方法称为联邦平均法（FederatedAveraging，或 FedAvg）。计算量由三个关键参数控制：$C$，每轮执行计算的客户比例；$E$，每个客户端在每一轮对其本地数据集进行训练的次数；$B$，用于客户端更新的本地小批量大小。我们用$B &#x3D; \infty$示整个本地数据集被视为一个迷你批。因此，在该算法族的一个端点，我们可以将$B &#x3D; \infty$和$E&#x3D;1$完全对应于 FedSGD。对于具有$n_k$本地示例的客户端，每轮本地更新的次数由$u_k &#x3D; E \frac{n_k}{B}$给出；完整的伪代码见下图。<br><img src="/img/fl-1.png"></p>
+<p><img src="/img/fl-2.png"></p>
+<p>上图：利用$\theta w + (1 - \theta) w’$对两个模型$w$和$w’$的参数进行平均后生成的模型在完整 MNIST 训练集上的损失，平均值为 50 个均匀分布的值$\theta \in [-0.2, 1.2]$。模型$w$和$w’$是在不同的小型数据集上使用 SGD 训练的。左图中，$w$和$w’$使用不同的随机种子初始化；右图中，使用的是共享种子。请注意不同的$y$轴刻度。水平线给出了$w$或$w’$所达到的最佳损失（两者非常接近，与$\theta &#x3D;0$和$\theta&#x3D;1$的垂直线相对应）。在共享初始化的情况下，对模型取平均值可以显著减少总训练集的损失（比任何一个父模型的损失都要好得多）。</p>
+<p>对于一般的非凸目标，参数空间中的平均模型可能会产生一个任意糟糕的模型。按照Goodfellow等人的方法，当我们平均两个MNIST数字识别模型时，就会发现这种糟糕的行为</p>
+<p>最近的研究表明，在实践中，充分过度参数化的 NN 的损失面出人意料地表现良好，特别是比以前认为的更不容易出现坏的局部极小值。事实上，当我们从相同的随机初始化开始建立两个模型，然后在不同的数据子集上对每个模型进行独立训练时（如上所述），我们发现天真的参数平均化效果出奇地好（图右）：这两个模型的平均值$\frac{1}{2} w + \frac{1}{2} w’$在整个MNIST训练集上的损失明显低于在任何一个小数据集上独立训练的最佳模型。每一轮FedAvg都使用了一个共享的起始模型$w_t$，因此同样的直觉也适用。</p>
+<h1 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h1><p>“联邦平均（Federated Averaging）”用于从分散的数据中有效学习深度网络模型。实验结果表明，这种方法能够在数据分布不均匀和非独立同分布（non-IID）的情况下保持稳健，同时大幅减少了训练深度网络所需的通信轮数，具体减少了10到100倍。</p>
+<p>在具体的实验中，作者使用了五种不同的模型架构和四个数据集来评估这一方法。实验包括对MNIST数据集的手写数字识别任务和对CIFAR-10数据集的图像分类任务的评估。结果显示，通过调整客户端的本地计算量，可以显著减少达到预设精确度所需的通信轮次。例如，对于处理MNIST数据集的一个配置，通过增加每个客户端的本地更新次数，可以将通信轮次从数千次减少到几十次。</p>
+<p>此外，针对一个使用莎士比亚作品的语言模型任务，联合平均算法在处理非均匀分布和非独立同分布数据时表现出了优越性，显著加快了模型的收敛速度，并提高了模型在实际应用中的通用性。</p>
+<p>总之，这些实验结果强调了联合学习在处理分布式、私密性强和数据量大的环境中的潜力和效果，尤其是在通信成本高昂的应用场景中。</p>
+<h1 id="结论和未来工作"><a href="#结论和未来工作" class="headerlink" title="结论和未来工作"></a>结论和未来工作</h1><p>实验表明，联合学习切实可行，FedAvg只需相对较少的几轮通信就能训练出高质量的模型，这一点已在多种模型架构上得到证明：多层感知器、两种不同的卷积NN、双层字符LSTM和大规模词级（word-level）LSTM。</p>
+<p>虽然联合学习提供了许多实用的隐私优势，但通过差分隐私、安全多方计算或它们的组合提供更强的保证是未来工作的一个有趣方向。请注意，这两类技术都非常适合FedAvg这样的同步算法。</p>
+</p></div><div class="share"><span>Share</span>&nbsp;<span class="soc"><a class="fa fa-bookmark" href="javascript:(function(){EN_CLIP_HOST='http://www.evernote.com';try{var%20x=document.createElement('SCRIPT');x.type='text/javascript';x.src=EN_CLIP_HOST+'/public/bookmarkClipper.js?'+(new%20Date().getTime()/100000);document.getElementsByTagName('head')[0].appendChild(x);}catch(e){location.href=EN_CLIP_HOST+'/clip.action?url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title);}})();" ref="nofollow" target="_blank"></a></span><span class="soc"><a class="fa fa-weibo" href="javascript:void((function(s,d,e){try{}catch(e){}var f='http://service.weibo.com/share/share.php?',u=d.location.href,p=['url=',e(u),'&amp;title=',e(d.title),'&amp;appkey=2924220432'].join('');function a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=620,height=450,left=',(s.width-620)/2,',top=',(s.height-450)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})(screen,document,encodeURIComponent));"></a></span><span class="soc"><a class="fa fa-twitter" target="_blank" rel="noopener" href="http://twitter.com/home?status=https://shemol.tech/2024/04/22/Communication-Efficient Learning of Deep Networks from Decentralized Data/%20Shemol's Blog%20Communication-Efficient Learning of Deep Networks from Decentralized Data"></a></span></div><div class="pagination"><p class="clearfix"><span class="pre pagbuttons"><a role="navigation" href="/2024/05/07/%E8%BF%91%E5%86%B5/" title="近况"><i class="fa fa-angle-double-left"></i>&nbsp;Previous post: 近况</a></span><span>&nbsp;</span><span class="next pagbuttons"><a role="navigation" href="/2024/04/21/ACM%20SIGCOMM%202023%20List%20of%20Accepted%20Papers/" title="ACM SIGCOMM 2023 List of Accepted Papers">Next post: ACM SIGCOMM 2023 List of Accepted Papers&nbsp;<i class="fa fa-angle-double-right"></i></a></span></p></div></div></div></div><div class="visible-xs site-bottom-footer"><footer><p>&copy;&nbsp;2024&nbsp;<a target="_blank" href="https://shemol.tech" rel="noopener noreferrer">Shemol</a></p><p>Theme&nbsp;<a target="_blank" href="https://github.com/SumiMakito/hexo-theme-typography" rel="noopener noreferrer">Typography</a>&nbsp;by&nbsp;<a target="_blank" href="https://www.keep.moe" rel="noopener noreferrer">Makito</a></p><p>Proudly published with&nbsp;<a target="_blank" href="https://hexo.io" rel="noopener noreferrer">Hexo</a></p></footer></div></div></div></div><script src="/js/jquery-3.1.0.min.js"></script><script src="/js/bootstrap.min.js"></script><script src="/js/jquery-migrate-1.2.1.min.js"></script><script src="/js/jquery.appear.js"></script><script src="/js/google-analytics.js"></script><script src="/js/typography.js"></script></body></html>
